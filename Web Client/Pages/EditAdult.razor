@@ -1,0 +1,67 @@
+@page "/Edit/{Id:int}"
+@using Model
+@using Data
+@using Authorization
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@inject IAdultService AdultServices
+@inject NavigationManager NavigationManager
+
+
+    
+<h3>Edit adult with id: @Id</h3>
+<EditForm Model="@adult" OnValidSubmit="@Save">
+    <DataAnnotationsValidator/>
+        <ValidationSummary/>
+
+        <div class="form-group">First Name: <br/>
+        <InputText @bind-Value="adult.FirstName"></InputText>
+        </div>
+        <div class="form-group">Last Name: <br/>
+        <InputText @bind-Value="adult.LastName"></InputText>
+        </div>
+        <div class="form-group">Hair Color: <br/>
+        <InputText @bind-Value="adult.HairColor"></InputText>
+        </div>
+        <div class="form-group">Eye Color: <br/>
+        <InputText @bind-Value="adult.EyeColor"></InputText>
+        </div>
+        <div class="form-group">Weight: <br/>
+        <InputNumber @bind-Value="adult.Weight"></InputNumber>
+        </div>
+        <div class="form-group">Height: <br/>
+        <InputNumber @bind-Value="adult.Height"></InputNumber>
+        </div>
+        <div class="form-group">Age: <br/>
+        <InputNumber @bind-Value="adult.Age"></InputNumber>
+        </div>
+        <div class="form-group">Sex: <br/>
+        <InputText @bind-Value="adult.Sex"></InputText>
+        </div>
+        <div class="form-group">Job Title: <br/>
+        <InputText @bind-Value="adult.JobTitle.JobTitle"></InputText>
+        </div>
+        <div class="form-group">Salary: <br/>
+        <InputNumber @bind-Value="adult.JobTitle.Salary"></InputNumber>
+        </div>
+        <p class="actions">
+            <button class="btn btn-outline-dark" type="submit">Create</button>
+        </p>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    private Adult adult;
+    protected override async Task OnInitializedAsync()
+    {
+        IList<Adult> a =  AdultServices.Adults;
+        adult = a.FirstOrDefault(adul => adul.Id == Id);
+    }
+    private async Task Save()
+    {
+       await AdultServices.EditAdultAsync(adult);
+       NavigationManager.NavigateTo("/adults");
+    }
+}
