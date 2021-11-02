@@ -68,5 +68,12 @@
     "FirstName": "Lilac",
     "LastName": "Lilac",
     "Role": "User"
+  },
+  {
+    "Username": "lily",
+    "Password": "lilyrose",
+    "FirstName": "Lily",
+    "LastName": "Rose",
+    "Role": "User"
   }
 ]

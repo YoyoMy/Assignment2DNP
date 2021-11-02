@@ -1309,25 +1309,39 @@
   {
     "Id": 18,
     "StreetName": "Lovely Street",
-    "HouseNumber": 39,
+    "HouseNumber": 20,
     "Adults": [
       {
         "JobTitle": {
           "JobTitle": "Teacher",
-          "Salary": 6666
+          "Salary": 5643
         },
         "Id": 1,
-        "FirstName": "Lisa",
-        "LastName": "Lisovich",
+        "FirstName": "Lily",
+        "LastName": "Rose",
         "HairColor": "Blonde",
         "EyeColor": "Blue",
         "Age": 30,
-        "Weight": 60,
-        "Height": 170,
+        "Weight": 50,
+        "Height": 165,
         "Sex": "F"
       }
     ],
-    "Children": [],
+    "Children": [
+      {
+        "Interests": [],
+        "Pets": [],
+        "Id": 1,
+        "FirstName": "Boby",
+        "LastName": "Rose",
+        "HairColor": "Blonde",
+        "EyeColor": "Blue",
+        "Age": 9,
+        "Weight": 30,
+        "Height": 130,
+        "Sex": "M"
+      }
+    ],
     "Pets": []
   }
 ]
